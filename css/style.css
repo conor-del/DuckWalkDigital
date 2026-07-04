@@ -584,6 +584,10 @@ button {
   align-items: start;
 }
 
+.story-media {
+  position: relative;
+}
+
 .story-media img {
   width: 100%;
   height: clamp(340px, 60vh, 560px);
@@ -591,6 +595,30 @@ button {
   object-position: center 30%;
   border-radius: 20px;
   box-shadow: 0 30px 55px -24px rgba(6, 6, 6, 0.4);
+}
+
+/* A couple of simple angular paper shapes, tucked in the corners */
+.story-shard {
+  position: absolute;
+  background: var(--paper);
+  pointer-events: none;
+}
+
+.story-shard--1 {
+  top: 5%;
+  right: 7%;
+  width: 70px;
+  height: 60px;
+  clip-path: polygon(0% 35%, 55% 0%, 100% 15%, 70% 100%);
+}
+
+.story-shard--2 {
+  bottom: 7%;
+  right: 24%;
+  width: 46px;
+  height: 40px;
+  opacity: 0.75;
+  clip-path: polygon(15% 0%, 100% 20%, 65% 100%, 0% 60%);
 }
 
 .story-copy {
@@ -637,6 +665,69 @@ button {
 .section {
   background: var(--paper);
   padding-block: clamp(80px, 10vw, 128px);
+}
+
+/* ---- Portfolio work grid ---- */
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.work-card {
+  position: relative;
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--ink);
+  box-shadow: 0 20px 40px -24px rgba(6, 6, 6, 0.35);
+  transition: transform 0.25s var(--ease);
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+}
+
+.work-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.work-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(6, 6, 6, 0.85) 100%);
+}
+
+.work-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 20px;
+}
+
+.work-caption h3 {
+  color: var(--paper);
+  font-size: 1.1rem;
+}
+
+.work-caption span {
+  display: block;
+  margin-top: 4px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 860px) {
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .section-head {
