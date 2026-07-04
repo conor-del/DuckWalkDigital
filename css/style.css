@@ -919,6 +919,25 @@ button {
   flex-shrink: 0;
 }
 
+.legal-content {
+  max-width: 720px;
+}
+
+.legal-content h2 {
+  font-size: 1.3rem;
+  margin-top: 40px;
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content p {
+  margin-top: 14px;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
 .coming-soon {
   border: 1.5px dashed var(--line);
   border-radius: 18px;
@@ -1012,6 +1031,7 @@ button:focus-visible {
   .process-card,
   .process-card:nth-child(even) {
     transform: none;
+    margin-top: 0;
     margin-left: 48px;
   }
   .process-card:hover,
